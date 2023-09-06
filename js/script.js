@@ -1,3 +1,4 @@
+// ativar links do menu
 const links = document.querySelectorAll(".header-menu a");
 
 const ativarLink = (link) => {
@@ -10,3 +11,13 @@ const ativarLink = (link) => {
 };
 
 links.forEach(ativarLink);
+
+// ativar itens do orcamento
+const parametros = new URLSearchParams(location.search);
+
+parametros.forEach((it) => {
+  const elemento = document.getElementById(it);
+  if (elemento) {
+    elemento.checked = true;
+  }
+});
