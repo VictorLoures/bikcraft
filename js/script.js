@@ -21,3 +21,19 @@ parametros.forEach((it) => {
     elemento.checked = true;
   }
 });
+
+// perguntas frequentes
+const perguntas = document.querySelectorAll(".perguntas button");
+
+perguntas.forEach((it) => {
+  const ativarPergunta = (event) => {
+    const pergunta = event.currentTarget;
+    const controls = pergunta.getAttribute("aria-controls");
+    const resposta = document.getElementById(controls);
+    const ativa = "ativa";
+    resposta.classList.toggle(ativa);
+    pergunta.setAttribute("aria-expanded", resposta.classList.contains(ativa));
+  };
+
+  it.addEventListener("click", ativarPergunta);
+});
